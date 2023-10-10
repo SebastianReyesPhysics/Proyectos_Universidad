@@ -19,7 +19,7 @@ El modelo de Ising es un modelo matemático de un sistema magnético. La simulac
 git clone https://github.com/your-username/Simulacion-Ising.git
 cd Simulacion-Ising
 ```
-2. Ejecutar el script simulacion_ising.py:
+2. Ejecutar el script algoritmo_metropolis.py:
 ```
 python simulacion_ising.py
 ```

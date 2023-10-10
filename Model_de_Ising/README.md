@@ -16,10 +16,10 @@ El modelo de Ising es un modelo matemático de un sistema magnético. La simulac
 
 1. Clonar el repositorio:
 ```bash
-git clone https://github.com/your-username/Simulacion-Ising.git
-cd Simulacion-Ising
+git https://github.com/bracedeer1/Proyectos_Universidad/tree/main/Model%20de%20Ising
+cd Modelo_de_Ising
 ```
 2. Ejecutar el script algoritmo_metropolis.py:
 ```
-python simulacion_ising.py
+python algoritmo_metropolis.py
 ```

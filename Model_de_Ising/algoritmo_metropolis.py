@@ -74,7 +74,7 @@ for T in temperaturas:
     series_energias[T] = energias
     series_magnetizaciones[T] = magnetizaciones
 
-# Seleccionar 5 temperaturas: mínima, máxima y tres intermedias
+# Seleccionar 4 temperaturas: mínima, máxima y dos intermedias
 temperaturas_seleccionadas = [temperaturas[0],temperaturas[34],temperaturas[46] ,temperaturas[-1]] 
 # Se seleccionaron temperaturas por menores y mayores a la temperatura crítica
 

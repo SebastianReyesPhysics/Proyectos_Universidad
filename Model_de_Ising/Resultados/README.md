@@ -16,4 +16,4 @@ El código se demoro alrededor de 9 minutos y 30 segundos.
 
 > **Un detalle a resaltar es que no se graficaron todas las temperaturas en la gráfica de temperatura total, ya que
 > son tantos conjuntos de datos a distintas temperaturas que se sobreponen en ocasiones. Por lo anterior, se muestran
-> solo cinco conjuntos de datos que reproducen el comportamiento de equilibrio del sistema.**
+> solo cuatro conjuntos de datos que reproducen el comportamiento de equilibrio del sistema.**

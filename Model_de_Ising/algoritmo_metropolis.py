@@ -7,7 +7,7 @@ L = 20  # Lado de la malla
 N = L * L  # Total de espines
 J = 1.0  # Constante de acoplamiento
 
-num_pasos = 100000  # Número de pasos de Monte Carlo
+num_pasos = 60000  # Número de pasos de Monte Carlo
 
 def magnetizacion():
     """Calcula la magnetización del sistema."""
@@ -66,7 +66,7 @@ series_energias = {}
 series_magnetizaciones = {}
 
 # Rango de temperaturas
-temperaturas = np.linspace(1, 3.5, 70) 
+temperaturas = np.linspace(1, 3.5, 60) 
 
 # Ejecutar la simulación para cada temperatura
 for T in temperaturas:
@@ -74,14 +74,20 @@ for T in temperaturas:
     series_energias[T] = energias
     series_magnetizaciones[T] = magnetizaciones
 
-# Graficar las series de energías
+# Seleccionar 5 temperaturas: mínima, máxima y tres intermedias
+temperaturas_seleccionadas = [temperaturas[0],temperaturas[34],temperaturas[46] ,temperaturas[-1]] 
+# Se seleccionaron temperaturas por menores y mayores a la temperatura crítica
+
+# Graficar las series de energías para las temperaturas seleccionadas
 plt.figure()
-for T, energias in series_energias.items():
-    plt.plot(range(num_pasos), energias, label=f'T = {T}')
+for T in temperaturas_seleccionadas:
+    plt.plot(range(num_pasos), series_energias[T], label=f'T = {np.round(T,1)}')
+
 plt.xlabel('Tiempo de Simulación (pasos)')
 plt.ylabel('Energía')
-plt.title('Energía del Sistema en Función del Tiempo de Simulación')
-# plt.legend()
+#plt.title('Energía del Sistema en Función del Tiempo de Simulación')
+plt.legend()
+plt.savefig('energia.pdf')
 plt.show()
 
 # Graficar la magnetización en función de la temperatura
@@ -90,6 +96,21 @@ magnetizacion_promedio = [np.mean(series_magnetizaciones[T]) for T in temperatur
 plt.scatter(temperaturas, magnetizacion_promedio, marker='o')
 plt.xlabel('Temperatura')
 plt.ylabel('Magnetización Promedio')
-plt.title('Magnetización Promedio en Función de la Temperatura')
+#plt.title('Magnetización Promedio en Función de la Temperatura')
 plt.grid(True)
+plt.savefig('magnetizacion_vs_T.pdf')
+plt.show()
+
+
+# Graficar la magnetización en función del tiempo de simulación para las temperaturas seleccionadas
+plt.figure()
+for T in temperaturas_seleccionadas:
+    if T in series_magnetizaciones:  # Asegurarse de que la temperatura esté en series_magnetizaciones
+        plt.plot(range(num_pasos), series_magnetizaciones[T], label=f'T = {np.round(T,1)}')
+
+plt.xlabel('Tiempo de Simulación (pasos)')
+plt.ylabel('Magnetización')
+#plt.title('Magnetización del Sistema en Función del Tiempo de Simulación')
+plt.legend()
+plt.savefig('magnetizacion_vs_Tiempo.pdf')
 plt.show()
